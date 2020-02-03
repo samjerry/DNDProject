@@ -13,7 +13,7 @@ public class Fow_CameraMovement : MonoBehaviour
     void Update()
     {
         goalPos.x = _target.position.x;
-        goalPos.z = _target.position.z - 8;
+        goalPos.z = _target.position.z;
         goalPos.y = transform.position.y;
 
         transform.position = Vector3.SmoothDamp(transform.position, goalPos, ref velocity, smoothTime);
