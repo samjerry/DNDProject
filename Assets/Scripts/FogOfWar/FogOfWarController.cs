@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum fowTypes
+enum fogOfWarTypes
 {
     Circular,
     Room,
@@ -10,55 +10,56 @@ enum fowTypes
     None
 }
 
-namespace FOW.Controller {
-    public class FogOfWarController : MonoBehaviour
+public class FogOfWarController : MonoBehaviour
+{
+    [SerializeField] private fogOfWarTypes _fowType;
+
+    [SerializeField] private List<MonoBehaviour> _fowTypes;
+
+    private MonoBehaviour _currentFOWType;
+
+    public Color _hiddenColor;
+    public Color _visitedColor;
+    public Color _revealedColor;
+
+    private void Start()
     {
-        [SerializeField] private fowTypes _fowType;
+        _fowTypes = new List<MonoBehaviour>();
 
-        [SerializeField] private List<MonoBehaviour> _fowTypes;
-
-        [SerializeField] private Color _hiddenColor;
-        [SerializeField] private Color _visitedColor;
-        [SerializeField] private Color _revealedColor;
-
-        private void Start()
+        for (int i = 0; i < _fowTypes.Count; i++)
         {
-            _fowTypes = new List<MonoBehaviour>();
-
-            for (int i = 0; i < _fowTypes.Count; i++)
-            {
-                _fowTypes[i].enabled = false;
-            }
-
-            GetFowType();
+            _fowTypes[i].enabled = false;
         }
 
-        private void GetFowType()
+        GetFowType();
+    }
+
+    private void GetFowType()
+    {
+        switch (_fowType)
         {
-            switch (_fowType)
-            {
-                case fowTypes.Circular:
-                    _fowTypes[(int)fowTypes.Circular].enabled = true;
-                    break;
+            case fogOfWarTypes.Circular:
+                _fowTypes[(int)fogOfWarTypes.Circular].enabled = true;
+                _currentFOWType = _fowTypes[0];
+                break;
 
-                case fowTypes.Room:
-                    _fowTypes[(int)fowTypes.Room].enabled = true;
-                    break;
+            case fogOfWarTypes.Room:
+                _fowTypes[(int)fogOfWarTypes.Room].enabled = true;
+                _currentFOWType = _fowTypes[1];
+                break;
 
-                case fowTypes.Minimap:
-                    _fowTypes[(int)fowTypes.Minimap].enabled = true;
-                    break;
+            case fogOfWarTypes.Minimap:
+                _fowTypes[(int)fogOfWarTypes.Minimap].enabled = true;
+                _currentFOWType = _fowTypes[2];
+                break;
 
-                default:
-                    break;
-            }
-
-            SetFowColor();
+            default:
+                break;
         }
+    }
 
-        private void SetFowColor()
-        {
-            
-        }
+    public void SetFowColor()
+    {
+
     }
 }
