@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
+	public GameObject Floor;
     public Transform StartPosition;//This is where the program will start the pathfinding from.
     public LayerMask WallMask;//This is the mask that the program will look for when trying to find obstructions to the path.
     public Vector2 vGridWorldSize;//A vector2 to store the width and height of the graph in world units.
@@ -13,13 +14,25 @@ public class Grid : MonoBehaviour
     Node[,] NodeArray;//The array of nodes that the A Star algorithm uses.
     public List<Node> FinalPath;//The completed path that the red line will be drawn along
 
+	public bool ShowPathOnly;
 
     float fNodeDiameter;//Twice the amount of the radius (Set in the start function)
-    int iGridSizeX, iGridSizeY;//Size of the Grid in Array units.
+	int iGridSizeX, iGridSizeY;//Size of the Grid in Array units.
+
+	public int maxSize
+	{
+		get
+		{
+			return iGridSizeX * iGridSizeY;
+		}
+	}
 
 
     private void Start()//Ran once the program starts
     {
+        vGridWorldSize = new Vector2(Floor.transform.localScale.x * 10,
+                                     Floor.transform.localScale.z * 10);
+
         fNodeDiameter = fNodeRadius * 2;//Double the radius to get diameter
         iGridSizeX = Mathf.RoundToInt(vGridWorldSize.x / fNodeDiameter);//Divide the grids world co-ordinates by the diameter to get the size of the graph in array units.
         iGridSizeY = Mathf.RoundToInt(vGridWorldSize.y / fNodeDiameter);//Divide the grids world co-ordinates by the diameter to get the size of the graph in array units.
@@ -118,30 +131,44 @@ public class Grid : MonoBehaviour
 
         Gizmos.DrawWireCube(transform.position, new Vector3(vGridWorldSize.x, 1, vGridWorldSize.y));//Draw a wire cube with the given dimensions from the Unity inspector
 
-        if (NodeArray != null)//If the grid is not empty
-        {
-            foreach (Node n in NodeArray)//Loop through every node in the grid
-            {
-                if (n.bIsWall)//If the current node is a wall node
-                {
-                    Gizmos.color = Color.white;//Set the color of the node
-                } else {
-                    Gizmos.color = Color.yellow;//Set the color of the node
-                }
+		if (ShowPathOnly)
+		{
+			if (FinalPath != null)
+			{
+				foreach (Node n in FinalPath)
+				{
+					Gizmos.color = Color.red;
+					Gizmos.DrawCube(n.vPosition, Vector3.one * (fNodeDiameter - fDistanceBetweenNodes));//Draw the node at the position of the node.				}
+				}
+			}
+		}
+		else
+		{
+			if (NodeArray != null)//If the grid is not empty
+			{
+				foreach (Node n in NodeArray)//Loop through every node in the grid
+				{
+					if (n.bIsWall)//If the current node is a wall node
+					{
+						Gizmos.color = Color.white;//Set the color of the node
+					}
+					else
+					{
+						Gizmos.color = Color.yellow;//Set the color of the node
+					}
 
 
-                if (FinalPath != null)//If the final path is not empty
-                {
-                    if (FinalPath.Contains(n))//If the current node is in the final path
-                    {
-                        Gizmos.color = Color.red;//Set the color of that node
+					if (FinalPath != null)//If the final path is not empty
+					{
+						if (FinalPath.Contains(n))//If the current node is in the final path
+						{
+							Gizmos.color = Color.red;//Set the color of that node
+						}
                     }
 
-                }
-
-
-                Gizmos.DrawCube(n.vPosition, Vector3.one * (fNodeDiameter - fDistanceBetweenNodes));//Draw the node at the position of the node.
-            }
+                    Gizmos.DrawCube(n.vPosition, Vector3.one * (fNodeDiameter - fDistanceBetweenNodes));//Draw the node at the position of the node.
+				}
+			}
         }
     }
 }

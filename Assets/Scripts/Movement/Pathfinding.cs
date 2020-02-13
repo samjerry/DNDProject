@@ -7,6 +7,7 @@ public class Pathfinding : MonoBehaviour
     Grid GridReference;//For referencing the grid class
     public Transform StartPosition;//Starting position to pathfind from
     public Transform TargetPosition;//Starting position to pathfind to
+	public bool autoUpdate;
 
     private void Awake()//When the program starts
     {
@@ -15,9 +16,16 @@ public class Pathfinding : MonoBehaviour
 
     private void Update()//Every frame
     {
-        if (Input.GetMouseButtonDown(0))//If the player has left clicked
+		if (autoUpdate)
+		{
+			FindPath(StartPosition.position, TargetPosition.position);//Find a path to the goal
+		}
+		else
         {
-            FindPath(StartPosition.position, TargetPosition.position);//Find a path to the goal
+			if (Input.GetMouseButtonDown(0))//If the player has left clicked
+			{
+				FindPath(StartPosition.position, TargetPosition.position);//Find a path to the goal
+			}
         }
     }
 
@@ -55,7 +63,6 @@ public class Pathfinding : MonoBehaviour
                     continue;//Skip it
                 }
                 int MoveCost = CurrentNode.igCost + GetManhattenDistance(CurrentNode, NeighborNode);//Get the F cost of that neighbor
-                Debug.Log(MoveCost);
 
                 if (MoveCost < NeighborNode.igCost || !OpenList.Contains(NeighborNode))//If the f cost is greater than the g cost or it is not in the open list
                 {
@@ -73,8 +80,6 @@ public class Pathfinding : MonoBehaviour
         }
     }
 
-
-
     void GetFinalPath(Node a_StartingNode, Node a_EndNode) {
         List<Node> FinalPath = new List<Node>();//List to hold the path sequentially 
         Node CurrentNode = a_EndNode;//Node to store the current node being checked
@@ -88,6 +93,7 @@ public class Pathfinding : MonoBehaviour
         FinalPath.Reverse();//Reverse the path to get the correct order
 
         GridReference.FinalPath = FinalPath;//Set the final path
+        Debug.Log("Walking cost is: " + FinalPath.Count * 5 + "ft.");
 
     }
 
