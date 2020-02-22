@@ -6,7 +6,7 @@ public class Pathfinding : MonoBehaviour
 {
     Grid GridReference;//For referencing the grid class
     public Transform StartPosition;//Starting position to pathfind from
-    public Transform TargetPosition;//Starting position to pathfind to
+    public Vector3 TargetPosition;//Starting position to pathfind to
 	public bool autoUpdate;
 
     private void Awake()//When the program starts
@@ -18,13 +18,20 @@ public class Pathfinding : MonoBehaviour
     {
 		if (autoUpdate)
 		{
-			FindPath(StartPosition.position, TargetPosition.position);//Find a path to the goal
+			FindPath(StartPosition.position, TargetPosition);//Find a path to the goal
 		}
 		else
         {
 			if (Input.GetMouseButtonDown(0))//If the player has left clicked
 			{
-				FindPath(StartPosition.position, TargetPosition.position);//Find a path to the goal
+                RaycastHit _hit;
+                Ray _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(_ray, out _hit))
+                {
+                    TargetPosition = _hit.point;
+                }
+
+				FindPath(StartPosition.position, TargetPosition);//Find a path to the goal
 			}
         }
     }

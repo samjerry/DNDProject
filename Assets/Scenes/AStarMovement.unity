@@ -406,8 +406,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 527161935}
-  - component: {fileID: 527161934}
   - component: {fileID: 527161933}
+  - component: {fileID: 527161934}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartPosition: {fileID: 1749148405}
-  TargetPosition: {fileID: 1446094937}
+  TargetPosition: {x: 0, y: 0, z: 0}
   autoUpdate: 0
 --- !u!114 &527161934
 MonoBehaviour:
@@ -965,6 +965,7 @@ GameObject:
   - component: {fileID: 1446094936}
   - component: {fileID: 1446094935}
   - component: {fileID: 1446094934}
+  - component: {fileID: 1446094938}
   m_Layer: 0
   m_Name: MouseSelection (EndPos)
   m_TagString: Untagged
@@ -1045,6 +1046,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1446094938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446094933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 682b9513ab00e4983ad011155597f9ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1662264501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,6 +1254,7 @@ GameObject:
   - component: {fileID: 1749148404}
   - component: {fileID: 1749148403}
   - component: {fileID: 1749148402}
+  - component: {fileID: 1749148406}
   m_Layer: 0
   m_Name: Creature (StartPos)
   m_TagString: Untagged
@@ -1321,6 +1335,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1749148406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749148401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e11ad41cfad487b4e85edfab4bbd4503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _aStar: {fileID: 527161933}
 --- !u!1 &1762312158
 GameObject:
   m_ObjectHideFlags: 0
