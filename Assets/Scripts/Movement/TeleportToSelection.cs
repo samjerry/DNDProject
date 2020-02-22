@@ -12,10 +12,10 @@ public class TeleportToSelection : MonoBehaviour
             Ray _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(_ray, out _hit))
             {
-                //if (_hit.transform.gameObject.layer == )
-                //{
+                if (_hit.collider.gameObject.layer == LayerMask.NameToLayer("Floor"))
+                {
                     transform.position = _hit.point;
-                //}
+                }
             }
         }
     }
