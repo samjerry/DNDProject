@@ -11,7 +11,7 @@ public class Pathfinding : MonoBehaviour
 
     private void Awake()//When the program starts
     {
-        GridReference = GetComponent<Grid>();//Get a reference to the game manager
+        GridReference = GameObject.Find("GameManager").GetComponent<Grid>();//Get a reference to the game manager
     }
 
     private void Update()//Every frame
@@ -28,7 +28,9 @@ public class Pathfinding : MonoBehaviour
                 Ray _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(_ray, out _hit))
                 {
-                    TargetPosition = _hit.point;
+                    TargetPosition.x = Mathf.RoundToInt(_hit.point.x);
+                    TargetPosition.y = Mathf.RoundToInt(_hit.point.y);
+                    TargetPosition.z = Mathf.RoundToInt(_hit.point.z);
                 }
 
 				FindPath(StartPosition.position, TargetPosition);//Find a path to the goal
@@ -100,6 +102,7 @@ public class Pathfinding : MonoBehaviour
         FinalPath.Reverse();//Reverse the path to get the correct order
 
         GridReference.FinalPath = FinalPath;//Set the final path
+        gameObject.GetComponent<MoveTarget>()._path = FinalPath;
         Debug.Log("Walking cost is: " + FinalPath.Count * 5 + "ft.");
 
     }
