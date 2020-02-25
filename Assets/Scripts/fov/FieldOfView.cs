@@ -17,13 +17,29 @@ public class FieldOfView : MonoBehaviour
     public float meshResolution;
 
     public MeshFilter viewMeshFilter;
-    Mesh viewMesh;
+    public MeshRenderer viewMeshRenderer;
+
+    private Mesh _viewMesh;
+    private Material _viewMaterial;
+    [SerializeField] private Color _color;
 
     private void Start() 
     {
-        viewMesh = new Mesh();
-        viewMesh.name = "View Mesh";
-        viewMeshFilter.mesh = viewMesh;
+        _viewMesh = new Mesh();
+        _viewMesh.name = "View Mesh";
+        Vector3[] vertices = _viewMesh.vertices;
+        Color[] _colors = new Color[vertices.Length];
+
+        for (int i = 0; i < vertices.Length; i++)
+            _colors[i] = Color.black;
+
+        _viewMesh.colors = _colors;
+        viewMeshFilter.mesh = _viewMesh;
+
+        _viewMaterial = new Material(Shader.Find("Specular"));
+        _viewMaterial.color = _color;
+
+        viewMeshRenderer.material = _viewMaterial;
 
         StartCoroutine("FindTargetsWithDelay", .2f);
     }
@@ -96,10 +112,10 @@ public class FieldOfView : MonoBehaviour
             }
         }
 
-        viewMesh.Clear();
-        viewMesh.vertices = vertices;
-        viewMesh.triangles = triangles;
-        viewMesh.RecalculateNormals();
+        _viewMesh.Clear();
+        _viewMesh.vertices = vertices;
+        _viewMesh.triangles = triangles;
+        _viewMesh.RecalculateNormals();
     }
 
     ViewCastInfo ViewCast(float globalAngle) 
