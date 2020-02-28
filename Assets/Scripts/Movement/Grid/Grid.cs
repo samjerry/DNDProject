@@ -15,6 +15,7 @@ public class Grid : MonoBehaviour
     public List<Node> FinalPath;//The completed path that the red line will be drawn along
 
 	public bool ShowPathOnly;
+    public bool ShowPath;
 
     float fNodeDiameter;//Twice the amount of the radius (Set in the start function)
 	int iGridSizeX, iGridSizeY;//Size of the Grid in Array units.
@@ -133,13 +134,17 @@ public class Grid : MonoBehaviour
 
 		if (ShowPathOnly)
 		{
-			if (FinalPath != null)
-			{
-				foreach (Node n in FinalPath)
-				{
-					Gizmos.color = Color.red;
-					Gizmos.DrawCube(n.vPosition, Vector3.one * (fNodeDiameter - fDistanceBetweenNodes));//Draw the node at the position of the node.				}
-				}
+            if (ShowPath)
+            {
+                if (FinalPath != null)
+			    {
+                
+                    foreach (Node n in FinalPath)
+                    {
+                        Gizmos.color = Color.red;
+                        Gizmos.DrawCube(n.vPosition, Vector3.one * (fNodeDiameter - fDistanceBetweenNodes));//Draw the node at the position of the node.				}
+                    }
+                }
 			}
 		}
 		else
@@ -157,13 +162,15 @@ public class Grid : MonoBehaviour
 						Gizmos.color = Color.yellow;//Set the color of the node
 					}
 
-
-					if (FinalPath != null)//If the final path is not empty
-					{
-						if (FinalPath.Contains(n))//If the current node is in the final path
-						{
-							Gizmos.color = Color.red;//Set the color of that node
-						}
+                    if (ShowPath)
+                    {
+                        if (FinalPath != null)//If the final path is not empty
+                        {
+                            if (FinalPath.Contains(n))//If the current node is in the final path
+                            {
+                                Gizmos.color = Color.red;//Set the color of that node
+                            }
+                        }
                     }
 
                     Gizmos.DrawCube(n.vPosition, Vector3.one * (fNodeDiameter - fDistanceBetweenNodes));//Draw the node at the position of the node.

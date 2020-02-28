@@ -35,7 +35,6 @@ public class Heap<T> where T : IHeapItem<T>
     public void UpdateItem(T item)
     {
         SortUp(item);
-
     }
 
     public int Count
