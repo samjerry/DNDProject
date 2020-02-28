@@ -435,6 +435,7 @@ MonoBehaviour:
   fNodeRadius: 0.4
   fDistanceBetweenNodes: 0.2
   ShowPathOnly: 1
+  ShowPath: 1
 --- !u!4 &527161935
 Transform:
   m_ObjectHideFlags: 0
