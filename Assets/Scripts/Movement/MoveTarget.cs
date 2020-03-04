@@ -11,6 +11,7 @@ public class MoveTarget : MonoBehaviour
     private int _remainingSteps;
     private float _speed = 3f;
     private int _stepCost = 5;
+    private Vector3 _startPos;
 
     private void Start()
     {
@@ -37,24 +38,27 @@ public class MoveTarget : MonoBehaviour
     {
         for (int x = 0; x < _path.Count; x++)
         {
-            transform.position = Vector3.Lerp(transform.position, _path[x].vPosition, _speed);
+            transform.position = Vector3.Lerp(_startPos, _path[x].vPosition, _speed);
 
             if (transform.position == _path[x].vPosition)
             {
+                _path.Remove(_path[x]);
                 _remainingSteps -= _stepCost;
                 yield return new WaitForSeconds(_speed * Time.deltaTime);
             }
 
             if (_remainingSteps == 0)
             {
+                _startPos = _path[x].vPosition;
+                ResetStepCount();
                 break;
             }
 
             if (x == _path.Count)
             {
+                _startPos = _path[x].vPosition;
                 break;
             }
-
         }
         //    for (int i = 0; i < _path.Count; i++) {
         //        if (transform.position != _path[i].vPosition) {
