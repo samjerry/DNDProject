@@ -14,7 +14,7 @@ public class FogOfWarController : MonoBehaviour
 {
     [SerializeField] private fogOfWarTypes _fowType;
 
-    [SerializeField] private List<MonoBehaviour> _fowTypes;
+    private List<MonoBehaviour> _fowTypes;
 
     private MonoBehaviour _currentFOWType;
 

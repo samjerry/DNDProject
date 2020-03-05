@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fow_CameraMovement : MonoBehaviour
+public class CameraMovement : MonoBehaviour
 {
     [SerializeField] private Transform _target;
     [SerializeField] private float smoothTime = 0.3f;

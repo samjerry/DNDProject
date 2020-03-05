@@ -6,7 +6,7 @@ public class FogOfWarRoom : MonoBehaviour
 {
     public GameObject _fogOfWarPlane;
     public Transform _player;
-    public LayerMask _fogLayer;
+    public LayerMask _floorLayer;
 
     public float _radius = 5f;
     private float _radiusSqr { get { return _radius * _radius; } }
@@ -32,7 +32,7 @@ public class FogOfWarRoom : MonoBehaviour
     {
         Ray _r = new Ray(transform.position, _player.position - transform.position);
         RaycastHit _hit;
-        if (Physics.Raycast(_r, out _hit, 1000, _fogLayer, QueryTriggerInteraction.Collide))
+        if (Physics.Raycast(_r, out _hit, 1000, _floorLayer, QueryTriggerInteraction.Collide))
         {
             for (int i = 0; i < _vertices.Length; i++)
             {
