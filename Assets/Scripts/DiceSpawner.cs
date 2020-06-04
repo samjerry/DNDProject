@@ -1,14 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DiceSpawner : MonoBehaviour
 {
     private GameObject _targetDice;
-
-    [SerializeField]
-    private Button _buttonSpawn;
 
     [SerializeField]
     private GameObject _diceFourSided,
@@ -26,13 +22,20 @@ public class DiceSpawner : MonoBehaviour
         _diceList = new List<GameObject>();
     }
 
-    void Update()
+    public void SetTargetDice(GameObject _dice)
     {
-
-        SpawnDice(_targetDice);
+        _targetDice = _dice;
     }
 
-    private void SpawnDice(GameObject _spawnedDice)
+    public void AddToDiceList(GameObject _dice, int _value)
+    {
+        for (int i = 0; i < _value; i++)
+        {
+            _diceList.Add(_dice);
+        }
+    }
+
+    public void SpawnDice(GameObject _spawnedDice)
     {
         foreach (GameObject _dice in _diceList)
         {
@@ -40,8 +43,13 @@ public class DiceSpawner : MonoBehaviour
         }
     }
 
-    private void DeleteDice()
+    public void DeleteDice()
     {
+        foreach (GameObject _dice in _diceList)
+        {
+            Destroy(_dice);
+        }
 
+        _diceList.Clear();
     }
 }
