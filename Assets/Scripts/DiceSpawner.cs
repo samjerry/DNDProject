@@ -1,45 +1,66 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DiceSpawner : MonoBehaviour
 {
-    private GameObject _targetDice;
-
     [SerializeField]
-    private GameObject _diceFourSided,
-                       _diceSixSided,
-                       _diceEightSided,
-                       _diceTenSided,
-                       _diceTwelveSided,
-                       _diceTwentySided,
-                       _dicePercentile;
+    private Text _diceAmountText;
 
     private List<GameObject> _diceList;
+
+    private GameObject _targetDice;
+
+    private int _diceAmount = 0;
 
     void Start()
     {
         _diceList = new List<GameObject>();
+        _diceAmountText.text = _diceAmount.ToString();
     }
 
     public void SetTargetDice(GameObject _dice)
     {
         _targetDice = _dice;
+        Debug.Log("Target dice is: " + _targetDice.name);
     }
 
-    public void AddToDiceList(GameObject _dice, int _value)
+    public void ChangeDiceAmount(int _value)
     {
-        for (int i = 0; i < _value; i++)
+        if ((_diceAmount + _value) >= 0)
         {
-            _diceList.Add(_dice);
+            _diceAmount += _value;
+            _diceAmountText.text = _diceAmount.ToString();
         }
     }
 
-    public void SpawnDice(GameObject _spawnedDice)
+    public void AddToDiceList()
     {
-        foreach (GameObject _dice in _diceList)
+        if (_targetDice != null)
         {
-            Instantiate(_dice);
+            for (int i = 0; i < _diceAmount; i++)
+            {
+                _diceList.Add(_targetDice);
+                Debug.Log("Added: " + _targetDice + " to the dice spawn list");
+            }
+        }
+       
+        Debug.Log("Total dice that will be spawned: " + _diceList.Count);
+    }
+
+    public void SpawnDice()
+    {
+        if (_diceList.Count != 0)
+        {
+            foreach (GameObject _dice in _diceList)
+            {
+                Vector3 _randomPos = new Vector3(Random.Range(0, 3),
+                                                 Random.Range(0, 3),
+                                                 transform.position.y);
+
+                Instantiate(_dice, _randomPos, Quaternion.identity);
+            }
         }
     }
 
