@@ -13,6 +13,9 @@ public class DiceSpawner : MonoBehaviour
     private GameObject _targetDice;
 
     private int _diceAmount = 0;
+    private int _diceInList;
+    private int _spawnRadius = 8;
+
 
     void Start()
     {
@@ -23,31 +26,72 @@ public class DiceSpawner : MonoBehaviour
     public void SetTargetDice(GameObject _dice)
     {
         _targetDice = _dice;
+        _diceAmount = 0;
         Debug.Log("Target dice is: " + _targetDice.name);
+        SetDiceAmountText();
+    }
+
+    private void SetDiceAmountText() 
+    {
+        _diceInList = 0;
+
+        for (int i = 0; i < _diceList.Count; i++) 
+        {
+            if (_diceList[i] = _targetDice) 
+            {
+                _diceInList++;
+            }
+        }
+        _diceAmountText.text = _diceInList.ToString();
     }
 
     public void ChangeDiceAmount(int _value)
     {
-        if ((_diceAmount + _value) >= 0)
+        if ((_diceAmount + _value) > _diceAmount && (_diceAmount + _value) >= 0)
         {
             _diceAmount += _value;
             _diceAmountText.text = _diceAmount.ToString();
+            AddToDiceList();
+        }
+
+        if ((_diceAmount + _value) < _diceAmount && (_diceAmount + _value) >= 0) {
+            _diceAmount += _value;
+            _diceAmountText.text = _diceAmount.ToString();
+            RemoveFromDiceList();
         }
     }
 
-    public void AddToDiceList()
+    private void AddToDiceList()
     {
         if (_targetDice != null)
         {
-            for (int i = 0; i < _diceAmount; i++)
-            {
-                _diceList.Add(_targetDice);
-                Debug.Log("Added: " + _targetDice + " to the dice spawn list");
-            }
+            _diceList.Add(_targetDice);
+            Debug.Log("Added: " + _targetDice + " to the dice spawn list");
         }
        
         Debug.Log("Total dice that will be spawned: " + _diceList.Count);
     }
+
+    public void RemoveFromDiceList() 
+    {
+        int _diceOfType = 0;
+        if (_targetDice != null) 
+        {
+            for (int i = 0; i < _diceList.Count; i++) 
+            {
+                if (_diceList[i] == _targetDice) {
+                    _diceOfType++;
+
+                    if ((_diceOfType > _diceAmount)) {
+                        _diceList.Remove(_diceList[i]);
+                        Debug.Log("Removed: " + _targetDice + " from the dice spawn list");
+                    }
+                }
+            }
+        }
+        Debug.Log("Total dice that will be spawned: " + _diceList.Count);
+    }
+
 
     public void SpawnDice()
     {
@@ -55,11 +99,11 @@ public class DiceSpawner : MonoBehaviour
         {
             foreach (GameObject _dice in _diceList)
             {
-                Vector3 _randomPos = new Vector3(Random.Range(0, 3),
-                                                 Random.Range(0, 3),
-                                                 transform.position.y);
+                Vector3 _randomPos = new Vector3(Random.Range(-_spawnRadius, _spawnRadius),
+                                                 transform.position.y,
+                                                 Random.Range(-_spawnRadius, _spawnRadius));
 
-                Instantiate(_dice, _randomPos, Quaternion.identity);
+                Instantiate(_dice, _randomPos, Random.rotation);
             }
         }
     }
