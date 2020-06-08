@@ -10,6 +10,8 @@ public class DiceSpawner : MonoBehaviour
 
     private List<GameObject> _diceList;
 
+    [SerializeField]
+    private GameObject _startDice;
     private GameObject _targetDice;
 
     private int _diceAmount = 0;
@@ -21,6 +23,7 @@ public class DiceSpawner : MonoBehaviour
     {
         _diceList = new List<GameObject>();
         _diceAmountText.text = _diceAmount.ToString();
+        _targetDice = _startDice;
     }
 
     public void SetTargetDice(GameObject _dice)

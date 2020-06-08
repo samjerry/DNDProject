@@ -1297,6 +1297,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _diceAmountText: {fileID: 1040134733}
+  _startDice: {fileID: 8960697373046391407, guid: ff47cc835f05744b2a5bd46c6fda87e7,
+    type: 3}
 --- !u!1 &423958870
 GameObject:
   m_ObjectHideFlags: 0
