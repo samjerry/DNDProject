@@ -7,8 +7,9 @@ public class Rotate : MonoBehaviour
     [SerializeField]
     private float _rotationSpeed = 15f;
 
-    private bool _isModelPreview;
-    private bool _isPlayerPreview;
+    [SerializeField]
+    private bool _isModelPreview, 
+                 _isPlayerPreview;
 
     private void Start() 
     {
