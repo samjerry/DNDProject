@@ -47,17 +47,21 @@ public class DiceSpawner : MonoBehaviour
 
     public void ChangeDiceAmount(int _value)
     {
-        if ((_diceAmount + _value) > _diceAmount && (_diceAmount + _value) >= 0)
+        if (_targetDice != null) 
         {
-            _diceAmount += _value;
-            _diceAmountText.text = _diceAmount.ToString();
-            AddToDiceList();
-        }
+            if ((_diceAmount + _value) > _diceAmount && (_diceAmount + _value) >= 0) 
+            {
+                _diceAmount += _value;
+                _diceAmountText.text = _diceAmount.ToString();
+                AddToDiceList();
+            }
 
-        if ((_diceAmount + _value) < _diceAmount && (_diceAmount + _value) >= 0) {
-            _diceAmount += _value;
-            _diceAmountText.text = _diceAmount.ToString();
-            RemoveFromDiceList();
+            if ((_diceAmount + _value) < _diceAmount && (_diceAmount + _value) >= 0) 
+            {
+                _diceAmount += _value;
+                _diceAmountText.text = _diceAmount.ToString();
+                RemoveFromDiceList();
+            }
         }
     }
 
@@ -68,7 +72,6 @@ public class DiceSpawner : MonoBehaviour
             _diceList.Add(_targetDice);
             Debug.Log("Added: " + _targetDice + " to the dice spawn list");
         }
-       
         Debug.Log("Total dice that will be spawned: " + _diceList.Count);
     }
 
