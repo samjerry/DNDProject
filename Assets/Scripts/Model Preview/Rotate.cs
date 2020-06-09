@@ -24,7 +24,10 @@ public class Rotate : MonoBehaviour
 
     IEnumerator RotateModel()  
     {
-        transform.Rotate(Vector3.up * Time.deltaTime * _rotationSpeed);
-        yield return null;
+        while (true) 
+        {
+            transform.Rotate(Vector3.up * Time.deltaTime * _rotationSpeed);
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 }
