@@ -9,7 +9,7 @@ public class ShowModelUI : MonoBehaviour
 
     private void Start() 
     {
-        var _models = FindObjectsOfType<ShowModelController>().GetModels();
+        var _models = FindObjectOfType<ShowModelController>().GetModels();
         foreach (var _model in _models) 
         {
             CreateButtonForModel(_model);
