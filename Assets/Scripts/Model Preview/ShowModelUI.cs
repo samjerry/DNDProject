@@ -20,9 +20,8 @@ public class ShowModelUI : MonoBehaviour
     {
         var button = Instantiate(_buttonPrefab);
         button.transform.SetParent(this.transform);
-        button.transform.localScale = Vector3.one;
-        button.transform.localRotation = Quaternion.identity;
 
-        button.Initialize(_model, FindObjectOfType<ShowModelController>().EnableModel);
+        var _controller = FindObjectOfType<ShowModelController>();
+        button.Initialize(_model, _controller.EnableModel);
     }
 }

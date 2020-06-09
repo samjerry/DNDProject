@@ -24,6 +24,7 @@ public class ShowModelController : MonoBehaviour
         {
             var _transformToToggle = transform.GetChild(i);
             bool _shoulBeActive = _transformToToggle == modelTransform;
+
             _transformToToggle.gameObject.SetActive(_shoulBeActive);
         }
     }
