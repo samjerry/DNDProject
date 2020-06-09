@@ -14,7 +14,7 @@ public class Rotate : MonoBehaviour
     private float _maxZoomIn;
     private float _maxZoomOut;
 
-    private void Start() 
+    private void Update() 
     {
         if (_isModelPreview) 
         {
@@ -24,6 +24,7 @@ public class Rotate : MonoBehaviour
 
     private void RotateModel() 
     {
+        //Debug.Log("Rotate");
         transform.Rotate(Vector3.up * Time.deltaTime * _rotationSpeed);
     }
 }
