@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShowModelUI : MonoBehaviour 
 {
     [SerializeField]
-    private ShowModelButton _buttonModelPrefab, _buttonTabPrefab;
+    private ShowModelButton _buttonModelPrefab;
 
     private void Start() 
     {
