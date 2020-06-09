@@ -7,9 +7,12 @@ public class ShowModelUI : MonoBehaviour
     [SerializeField]
     private ShowModelButton _buttonModelPrefab;
 
+    [SerializeField]
+    private GameObject _target;
+
     private void Start() 
     {
-        var _models = FindObjectOfType<ShowModelController>().GetModels();
+        var _models = _target.GetComponent<ShowModelController>().GetModels();
         foreach (var _model in _models) {
             CreateButtonForModel(_model);
         }      
@@ -20,7 +23,7 @@ public class ShowModelUI : MonoBehaviour
         var _button = Instantiate(_buttonModelPrefab);
         _button.transform.SetParent(this.transform);
 
-        var _controller = FindObjectOfType<ShowModelController>();
+        var _controller = _target.GetComponent<ShowModelController>();
         _button.Initialize(_model, _controller.EnableModel);
     }
 }
