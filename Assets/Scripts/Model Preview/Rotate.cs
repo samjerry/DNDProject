@@ -18,16 +18,12 @@ public class Rotate : MonoBehaviour
     {
         if (_isModelPreview) 
         {
-            StartCoroutine(RotateModel());
+            RotateModel();
         }
     }
 
-    IEnumerator RotateModel()  
+    private void RotateModel() 
     {
-        while (true) 
-        {
-            transform.Rotate(Vector3.up * Time.deltaTime * _rotationSpeed);
-            yield return new WaitForSeconds(0.01f);
-        }
+        transform.Rotate(Vector3.up * Time.deltaTime * _rotationSpeed);
     }
 }
