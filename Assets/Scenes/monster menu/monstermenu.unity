@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 46504978}
   - component: {fileID: 46504977}
   m_Layer: 5
-  m_Name: Cylinder
+  m_Name: Azer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 121853106}
   - component: {fileID: 121853105}
   m_Layer: 5
-  m_Name: Cube
+  m_Name: Aarakocra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -699,7 +699,7 @@ GameObject:
   - component: {fileID: 135248017}
   - component: {fileID: 135248016}
   m_Layer: 5
-  m_Name: Cube
+  m_Name: Abhorrent Overlord
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1210,7 +1210,7 @@ GameObject:
   - component: {fileID: 250619148}
   - component: {fileID: 250619147}
   m_Layer: 5
-  m_Name: Capsule
+  m_Name: Aeorian Absorber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1385,7 +1385,7 @@ GameObject:
   - component: {fileID: 274922689}
   - component: {fileID: 274922688}
   m_Layer: 5
-  m_Name: Sphere
+  m_Name: Black Pudding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1835,7 +1835,7 @@ GameObject:
   - component: {fileID: 359714485}
   - component: {fileID: 359714484}
   m_Layer: 5
-  m_Name: Cube
+  m_Name: Abominable Yeti
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1933,7 +1933,7 @@ GameObject:
   - component: {fileID: 371712455}
   - component: {fileID: 371712454}
   m_Layer: 5
-  m_Name: Sphere
+  m_Name: Kruthik_Adult
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2227,7 +2227,7 @@ GameObject:
   - component: {fileID: 408034519}
   - component: {fileID: 408034518}
   m_Layer: 5
-  m_Name: Capsule
+  m_Name: Alhoon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2326,7 +2326,7 @@ GameObject:
   - component: {fileID: 412793130}
   - component: {fileID: 412793129}
   m_Layer: 5
-  m_Name: Cylinder
+  m_Name: Acolyte
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2599,7 +2599,7 @@ GameObject:
   - component: {fileID: 457928971}
   - component: {fileID: 457928970}
   m_Layer: 5
-  m_Name: Capsule
+  m_Name: Abjurer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2698,7 +2698,7 @@ GameObject:
   - component: {fileID: 470013346}
   - component: {fileID: 470013345}
   m_Layer: 5
-  m_Name: Sphere
+  m_Name: Hag_Annis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3121,7 +3121,7 @@ GameObject:
   - component: {fileID: 638688643}
   - component: {fileID: 638688642}
   m_Layer: 5
-  m_Name: Capsule
+  m_Name: Bloodfray Giant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3220,7 +3220,7 @@ GameObject:
   - component: {fileID: 653479458}
   - component: {fileID: 653479457}
   m_Layer: 5
-  m_Name: Cube
+  m_Name: Animated Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3318,7 +3318,7 @@ GameObject:
   - component: {fileID: 653580814}
   - component: {fileID: 653580813}
   m_Layer: 5
-  m_Name: Sphere
+  m_Name: Elemental_Air_Myrmidon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3664,7 +3664,7 @@ GameObject:
   - component: {fileID: 689939769}
   - component: {fileID: 689939768}
   m_Layer: 5
-  m_Name: Sphere
+  m_Name: Aarakocra Simulacrum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3762,7 +3762,7 @@ GameObject:
   - component: {fileID: 692041288}
   - component: {fileID: 692041287}
   m_Layer: 5
-  m_Name: Cylinder
+  m_Name: Allip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3944,7 +3944,7 @@ GameObject:
   - component: {fileID: 733963873}
   - component: {fileID: 733963872}
   m_Layer: 5
-  m_Name: Cube
+  m_Name: Alseid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4141,7 +4141,7 @@ GameObject:
   - component: {fileID: 782851478}
   - component: {fileID: 782851477}
   m_Layer: 5
-  m_Name: Cylinder
+  m_Name: Borborygmos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4361,7 +4361,7 @@ GameObject:
   - component: {fileID: 787955032}
   - component: {fileID: 787955031}
   m_Layer: 5
-  m_Name: Capsule
+  m_Name: Arclight Phoenix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5005,7 +5005,7 @@ GameObject:
   - component: {fileID: 918288023}
   - component: {fileID: 918288022}
   m_Layer: 5
-  m_Name: Sphere
+  m_Name: Assassin Vine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5201,7 +5201,7 @@ GameObject:
   - component: {fileID: 973062080}
   - component: {fileID: 973062079}
   m_Layer: 5
-  m_Name: Cylinder
+  m_Name: Hag_Bheur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5300,7 +5300,7 @@ GameObject:
   - component: {fileID: 1020781369}
   - component: {fileID: 1020781368}
   m_Layer: 5
-  m_Name: Cube
+  m_Name: The Demogorgon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5398,7 +5398,7 @@ GameObject:
   - component: {fileID: 1095327627}
   - component: {fileID: 1095327626}
   m_Layer: 5
-  m_Name: Cylinder
+  m_Name: Aeorian Reverser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5573,7 +5573,7 @@ GameObject:
   - component: {fileID: 1196352991}
   - component: {fileID: 1196352990}
   m_Layer: 5
-  m_Name: Cylinder
+  m_Name: Alkilith
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5916,7 +5916,7 @@ GameObject:
   - component: {fileID: 1210310634}
   - component: {fileID: 1210310633}
   m_Layer: 5
-  m_Name: Sphere
+  m_Name: Dracolich_Blue_Adult
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6112,7 +6112,7 @@ GameObject:
   - component: {fileID: 1217306182}
   - component: {fileID: 1217306181}
   m_Layer: 5
-  m_Name: Cube
+  m_Name: Elemental_Air
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6262,7 +6262,7 @@ GameObject:
   - component: {fileID: 1259054039}
   - component: {fileID: 1259054038}
   m_Layer: 5
-  m_Name: Cube
+  m_Name: Oblex_Adult
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6633,7 +6633,7 @@ GameObject:
   - component: {fileID: 1316711960}
   - component: {fileID: 1316711959}
   m_Layer: 5
-  m_Name: Capsule
+  m_Name: Awakened_Shrub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8161,7 +8161,7 @@ GameObject:
   - component: {fileID: 1681701240}
   - component: {fileID: 1681701239}
   m_Layer: 5
-  m_Name: Cylinder
+  m_Name: Awakened_Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8410,7 +8410,7 @@ GameObject:
   - component: {fileID: 1739261010}
   - component: {fileID: 1739261009}
   m_Layer: 5
-  m_Name: Capsule
+  m_Name: Eladrin_Autumn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8866,7 +8866,7 @@ GameObject:
   - component: {fileID: 1846530938}
   - component: {fileID: 1846530937}
   m_Layer: 5
-  m_Name: Sphere
+  m_Name: Abyssal Chicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9389,7 +9389,7 @@ GameObject:
   - component: {fileID: 1933741899}
   - component: {fileID: 1933741898}
   m_Layer: 5
-  m_Name: Capsule
+  m_Name: Black Pudding_Elder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9958,7 +9958,7 @@ GameObject:
   - component: {fileID: 2010836081}
   - component: {fileID: 2010836080}
   m_Layer: 5
-  m_Name: Cylinder
+  m_Name: Oblex_Elder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10057,7 +10057,7 @@ GameObject:
   - component: {fileID: 2031825520}
   - component: {fileID: 2031825519}
   m_Layer: 5
-  m_Name: Sphere
+  m_Name: Blagothkus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10155,7 +10155,7 @@ GameObject:
   - component: {fileID: 2052565206}
   - component: {fileID: 2052565205}
   m_Layer: 5
-  m_Name: Cube
+  m_Name: Acererak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10253,7 +10253,7 @@ GameObject:
   - component: {fileID: 2145327862}
   - component: {fileID: 2145327861}
   m_Layer: 5
-  m_Name: Capsule
+  m_Name: Abyssal Wretch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
