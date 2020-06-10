@@ -29,7 +29,7 @@ public class ViewportFilter : MonoBehaviour
         }
 
         _maxIndex = _typeList.Count - 1;
-        ChangeTypeText();
+        ChangeTypeIndex(0);
     }
 
     public void ChangeTypeIndex(int _value) 
@@ -76,5 +76,23 @@ public class ViewportFilter : MonoBehaviour
             _currentTypeText.text = _typeList[_typeIndex].name;
             _NextTypeText.text = _typeList[_typeIndex + 1].name;
         }
+
+        ShowTypeFolder();
+    }
+
+    private void ShowTypeFolder() 
+    {
+        for (int i = 0; i < _viewPort.childCount; i++) 
+        {
+            _viewPort.GetChild(i).gameObject.SetActive(false);
+        }
+
+        _viewPort.GetChild(_typeIndex).gameObject.SetActive(true);
+        SetViewPortContent();
+    }
+
+    private void SetViewPortContent() 
+    {
+        GetComponent<ScrollRect>().content = _viewPort.GetChild(_typeIndex).GetComponent<RectTransform>();
     }
 }

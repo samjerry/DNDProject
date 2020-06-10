@@ -15,15 +15,34 @@ public class ShowModelController : MonoBehaviour
             _models.Add(_model);
 
             _model.gameObject.SetActive(i == 0);
-        }    
+        }
+
+        var _root = transform.root;
+
+        for (int i = 0; i < _root.childCount; i++) 
+        {
+            for (int j = 0; j < _root.GetChild(i).childCount; j++) 
+            {
+                _root.GetChild(i).GetChild(j).gameObject.SetActive(false);
+            }
+        }
     }
 
-    public void EnableModel(Transform modelTransform) 
+    public void EnableModel(Transform _modelTransform) 
     {
+        var _root = transform.root;
+
+        for (int i = 0; i < _root.childCount; i++) 
+        {
+            for (int j = 0; j < _root.GetChild(i).childCount; j++) 
+            {
+                _root.GetChild(i).GetChild(j).gameObject.SetActive(false);
+            }
+        }
         for (int i = 0; i < transform.childCount; i++) 
         {
             var _transformToToggle = transform.GetChild(i);
-            bool _shoulBeActive = _transformToToggle == modelTransform;
+            bool _shoulBeActive = _transformToToggle == _modelTransform;
 
             _transformToToggle.gameObject.SetActive(_shoulBeActive);
         }
