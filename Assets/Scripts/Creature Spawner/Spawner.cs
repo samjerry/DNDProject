@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     private Vector3 _nullSpawn = new Vector3(-1000, 
                                              -1000, 
                                              -1000);
-    [SerializeField]
+    [SerializeField, Tooltip("Obstruction Radius")]
     private float _radius;
 
     private void Update() 

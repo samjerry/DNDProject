@@ -579,7 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1825946759}
-  _radius: 0
+  _radius: 0.5
 --- !u!4 &1549123049
 Transform:
   m_ObjectHideFlags: 0
