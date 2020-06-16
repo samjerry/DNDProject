@@ -7,20 +7,31 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private GameObject _target;
 
+    private Vector3 _nullSpawn = new Vector3(-1000, 
+                                             -1000, 
+                                             -1000);
+    [SerializeField]
+    private float _radius;
+
     private void Update() 
     {
-        if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) 
+        if (Input.GetMouseButtonDown(0)) 
         {
-            Spawn(_target, MouseToWorldPosition());
+            if (MouseToWorldPosition() != null) {
+                Spawn(_target, MouseToWorldPosition());
+            }
         }    
     }
 
     private void Spawn(GameObject _objectToSpawn, Vector3 _spawnPos)
 	{
-        if (_objectToSpawn != null && _spawnPos != null)
+        if (!SpawnObstructed(_spawnPos)) 
         {
-            Instantiate(_objectToSpawn, _spawnPos, Quaternion.identity);
-        }       
+            if (_objectToSpawn != null && _spawnPos != null) 
+            {
+                Instantiate(_objectToSpawn, _spawnPos, Quaternion.identity);
+            }
+        }
 	}
 
     private Vector3 MouseToWorldPosition() 
@@ -33,15 +44,25 @@ public class Spawner : MonoBehaviour
             GameObject _objectHit = _hit.collider.gameObject;
             if (_objectHit.tag == "Ground") 
             {
-                Debug.Log("Spawn object");
+                return _hit.point;
             } 
-            
-            else 
+        }
+        return _nullSpawn;
+    }
+
+    private bool SpawnObstructed(Vector3 _center) 
+    {
+        bool _obstructed;
+
+        Collider[] _hitColliders = Physics.OverlapSphere(_center, _radius);
+        foreach (Collider _col in _hitColliders) 
+        {
+            if (_col.gameObject.tag == "Creature" || _col.gameObject.tag == "Wall") 
             {
-                Debug.Log("Spawneable area not found");
+                _obstructed = true;
+                return _obstructed;
             }
         }
-
-        return _hit.point;
+        return _obstructed = false;
     }
 }
