@@ -53,12 +53,13 @@ public abstract class BaseCharacterStats : MonoBehaviour
     {
         if (!_hasAttacked)
         {
-            Debug.Log("the target is " + _targetStats.name);
+            Debug.Log("The target is " + _targetStats.name);
             Debug.Log(_targetStats.name + " has " + _targetStats.hitPoints + " hit points");
         }
         else
         {
-            Debug.Log(_targetStats.name + " takes " + _damage + " damage");
+            Debug.Log(name + " attacks " + _targetStats.name);
+            Debug.Log(_targetStats.name + " takes " + _damage + " damage from " + name);
             Debug.Log(_targetStats.name + " has " + _targetStats.hitPoints + " hit points left");
         }
     }
