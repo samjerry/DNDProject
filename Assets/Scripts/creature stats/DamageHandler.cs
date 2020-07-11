@@ -8,10 +8,11 @@ public class DamageHandler : MonoBehaviour
 
     private void Start()
     {
-        _characterUI = GetComponent<CharacterUIManager>();    
+        _characterUI = GetComponent<CharacterUIManager>();
+
     }
 
-    private int Damage(GameObject _target, int _amount, int _sidedDice, int _baseDamage, string _type)
+    public int Damage(GameObject _target, int _amount, int _sidedDice, int _baseDamage, DamageTypes.DamageType _type)
     {
         int _damage;
         _damage = RollDamage(_amount, _sidedDice, _baseDamage);
@@ -37,38 +38,67 @@ public class DamageHandler : MonoBehaviour
     private int RollDamage(int _amount, int _sidedDice, int _baseDamage)
     {
         int _damage = _amount * _sidedDice + _baseDamage;
+        Debug.Log("Rolled: " + _damage + " damage");
         return _damage;
     }
 
-    private bool IsVulnerable(GameObject _target, string _type)
+    private bool IsVulnerable(GameObject _target, DamageTypes.DamageType _type)
     {
         //check the damage type of the attack
         //check through the vulnerable list of the target
         //if the type is in the list return true
         //if it is not in the list return false
+        for (int i = 0; i < _target.GetComponent<CharacterStats>().vulnerability.Length; i++)
+        {
+            if (_type == _target.GetComponent<CharacterStats>().vulnerability[i])
+            {
+                Debug.Log("is vulnerable to: " + _type + " damage");
+                return true;
+            }
+        }
+
         return false;
     }
 
-    private bool IsResistant(GameObject _target, string _type)
+    private bool IsResistant(GameObject _target, DamageTypes.DamageType _type)
     {
         //check the damage type of the attack
         //check through the resistance list of the target
         //if the type is in the list return true
         //if it is not in the list return false
+        for (int i = 0; i < _target.GetComponent<CharacterStats>().resistance.Length; i++)
+        {
+            if (_type == _target.GetComponent<CharacterStats>().resistance[i])
+            {
+                Debug.Log("is resistant to: " + _type + " damage");
+                return true;
+            }
+        }
+
         return false;
     }
 
-    private bool IsImmune(GameObject _target, string _type)
+    private bool IsImmune(GameObject _target, DamageTypes.DamageType _type)
     {
         //check the damage type of the attack
         //check through the immunity list of the target
         //if the type is in the list return true
         //if it is not in the list return false
+        for (int i = 0; i < _target.GetComponent<CharacterStats>().immunity.Length; i++)
+        {
+            if (_type == _target.GetComponent<CharacterStats>().immunity[i])
+            {
+                Debug.Log("is immune to: " + _type + " damage");
+                return true;
+            }
+        }
+
         return false;
     }
 
-    private void ApplyDamage(GameObject _target, int _damage)
+    public void ApplyDamage(GameObject _target, int _damage)
     {
-        _characterUI.SetHealthUI(_target);
+        _target.GetComponent<CharacterStats>().hitPoints -= _damage;
+        _characterUI.SetHealthUI(_target, _target.GetComponent<CharacterStats>().hitPoints);
     }
 }

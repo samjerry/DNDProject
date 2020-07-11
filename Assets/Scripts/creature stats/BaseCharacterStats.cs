@@ -2,28 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum DamageTypes
-{
-    Slashing,
-    Piercing,
-    Bludgeoning,
-    Poison,
-    Acid,
-    Fire,
-    Cold,
-    Radiant,
-    Necrotic,
-    Lightning,
-    Thunder,
-    Force,
-    Psychic
-}
-
 public abstract class BaseCharacterStats : MonoBehaviour
 {
+    public DamageHandler damageHandler;
     public string entityName = "Unknown";
-    public int damageAmount = 10;    // just a default value
     public int hitPoints = 100;        // just a default value
+
+    public int damageAmount = 0;
+    public int diceAmount = 2;    // just a default value
+    public int diceType = 6;
+    public DamageTypes.DamageType damageType;
+
+    public DamageTypes.DamageType[] vulnerability;
+    public DamageTypes.DamageType[] resistance;
+    public DamageTypes.DamageType[] immunity;
 
     public bool turn = false;
 
@@ -31,6 +23,7 @@ public abstract class BaseCharacterStats : MonoBehaviour
 
     protected void Start()
     {
+        damageHandler = GameObject.Find("Combat Manager").GetComponent<DamageHandler>();
         // anim = GetComponent<Animator>();
         // play spawn animation
     }
@@ -39,10 +32,9 @@ public abstract class BaseCharacterStats : MonoBehaviour
     {
         //------------------------------------------------------------
         CharacterStats _targetStats = _target.GetComponent<CharacterStats>();
-
         DebugAttack(_targetStats, _damage, false);
         // play attack animation
-        _targetStats.hitPoints -= _damage;
+        damageHandler.ApplyDamage(_target, damageHandler.Damage(_target, diceAmount, diceType, damageAmount, damageType));
         DebugAttack(_targetStats, _damage, true);
 
         //------------------------------------------------------------
@@ -62,22 +54,22 @@ public abstract class BaseCharacterStats : MonoBehaviour
 
     protected void DebugStats()
     {
-        Debug.Log(name + " Health: " + hitPoints);
-        Debug.Log(name + " Damage: " + damageAmount);
+        Debug.Log(entityName + " Health: " + hitPoints);
+        Debug.Log(entityName + " Damage: " + diceAmount + "d" + diceType);
     }
 
     protected void DebugAttack(CharacterStats _targetStats, int _damage, bool _hasAttacked)
     {
         if (!_hasAttacked)
         {
-            Debug.Log("The target is " + _targetStats.name);
-            Debug.Log(_targetStats.name + " has " + _targetStats.hitPoints + " hit points");
+            Debug.Log("The target is " + _targetStats.entityName);
+            Debug.Log(_targetStats.entityName + " has " + _targetStats.hitPoints + " hit points");
         }
         else
         {
-            Debug.Log(entityName + " attacks " + _targetStats.name);
-            Debug.Log(_targetStats.name + " takes " + _damage + " damage from " + entityName);
-            Debug.Log(_targetStats.name + " has " + _targetStats.hitPoints + " hit points left");
+            Debug.Log(entityName + " attacks " + _targetStats.entityName);
+            Debug.Log(_targetStats.entityName + " takes " + _damage + " damage from " + entityName);
+            Debug.Log(_targetStats.entityName + " has " + _targetStats.hitPoints + " hit points left");
         }
     }
 }
