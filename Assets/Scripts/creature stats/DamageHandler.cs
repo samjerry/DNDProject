@@ -32,6 +32,8 @@ public class DamageHandler : MonoBehaviour
             _damage = 0;
         }
 
+        Debug.Log(_target.GetComponent<CharacterStats>().entityName + " takes: " + _damage + " damage");
+
         return _damage;
     }
 

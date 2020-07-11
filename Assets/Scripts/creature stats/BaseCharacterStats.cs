@@ -68,7 +68,6 @@ public abstract class BaseCharacterStats : MonoBehaviour
         else
         {
             Debug.Log(entityName + " attacks " + _targetStats.entityName);
-            Debug.Log(_targetStats.entityName + " takes " + _damage + " damage from " + entityName);
             Debug.Log(_targetStats.entityName + " has " + _targetStats.hitPoints + " hit points left");
         }
     }
