@@ -2,9 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+enum DamageTypes
+{
+    Slashing,
+    Piercing,
+    Bludgeoning,
+    Poison,
+    Acid,
+    Fire,
+    Cold,
+    Radiant,
+    Necrotic,
+    Lightning,
+    Thunder,
+    Force,
+    Psychic
+}
+
 public abstract class BaseCharacterStats : MonoBehaviour
 {
-    public string name = "Unknown";
+    public string entityName = "Unknown";
     public int damageAmount = 10;    // just a default value
     public int hitPoints = 100;        // just a default value
 
@@ -58,8 +75,8 @@ public abstract class BaseCharacterStats : MonoBehaviour
         }
         else
         {
-            Debug.Log(name + " attacks " + _targetStats.name);
-            Debug.Log(_targetStats.name + " takes " + _damage + " damage from " + name);
+            Debug.Log(entityName + " attacks " + _targetStats.name);
+            Debug.Log(_targetStats.name + " takes " + _damage + " damage from " + entityName);
             Debug.Log(_targetStats.name + " has " + _targetStats.hitPoints + " hit points left");
         }
     }
