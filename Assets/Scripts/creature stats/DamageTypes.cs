@@ -6,6 +6,7 @@ public class DamageTypes : MonoBehaviour
 {
     public enum DamageType
     {
+        None,
         Slashing,
         Piercing,
         Bludgeoning,

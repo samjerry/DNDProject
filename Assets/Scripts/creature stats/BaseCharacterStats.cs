@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class BaseCharacterStats : MonoBehaviour
 {
-    public DamageHandler damageHandler;
+    private DamageHandler damageHandler;
     public string entityName = "Unknown";
     public int hitPoints = 100;        // just a default value
 

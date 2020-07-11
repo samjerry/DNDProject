@@ -701,16 +701,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cbb6a90a11a247cea2a1d21eedd38e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageHandler: {fileID: 0}
   entityName: Faendahl
   hitPoints: 100
   damageAmount: 0
   diceAmount: 2
   diceType: 6
-  damageType: 0
-  vulnerability: 05000000
+  damageType: 1
+  vulnerability: 06000000
   resistance: 00000000
-  immunity: 02000000
+  immunity: 04000000
   turn: 0
   anim: {fileID: 0}
 --- !u!54 &1383268579
@@ -836,13 +835,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cbb6a90a11a247cea2a1d21eedd38e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageHandler: {fileID: 0}
   entityName: Ankheg
   hitPoints: 100
   damageAmount: 0
   diceAmount: 2
   diceType: 6
-  damageType: 5
+  damageType: 6
   vulnerability: 
   resistance: 
   immunity: 

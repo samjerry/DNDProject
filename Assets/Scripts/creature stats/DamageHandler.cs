@@ -39,7 +39,11 @@ public class DamageHandler : MonoBehaviour
 
     private int RollDamage(int _amount, int _sidedDice, int _baseDamage)
     {
-        int _damage = _amount * _sidedDice + _baseDamage;
+        int _damage = 0;
+        for (int i = 0; i < _amount; i++)
+        {
+            _damage = _damage + Mathf.RoundToInt(Random.Range(1, _sidedDice));
+        }
         Debug.Log("Rolled: " + _damage + " damage");
         return _damage;
     }
