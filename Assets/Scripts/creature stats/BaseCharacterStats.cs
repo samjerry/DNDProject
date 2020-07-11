@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class BaseCharacterStats : MonoBehaviour
 {
-    public string name = "";
+    public string name = "Unknown";
     public int damageAmount = 10;    // just a default value
     public int hitPoints = 100;        // just a default value
 
@@ -24,9 +24,9 @@ public abstract class BaseCharacterStats : MonoBehaviour
         CharacterStats _targetStats = _target.GetComponent<CharacterStats>();
 
         DebugAttack(_targetStats, _damage, false);
+        // play attack animation
         _targetStats.hitPoints -= _damage;
         DebugAttack(_targetStats, _damage, true);
-
 
         //------------------------------------------------------------
 
