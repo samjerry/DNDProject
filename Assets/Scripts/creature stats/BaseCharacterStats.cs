@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public abstract class BaseCharacterStats : MonoBehaviour
 {
     private DamageHandler damageHandler;
@@ -21,9 +22,18 @@ public abstract class BaseCharacterStats : MonoBehaviour
 
     public Animator anim;
 
+    public int attackAmount;
+    public List<Attack> attacks;
+
+
     protected void Start()
     {
         damageHandler = GameObject.Find("Combat Manager").GetComponent<DamageHandler>();
+
+        for (int i = 0; i < attackAmount; i++)
+        {
+            attacks.Add(AddAttack());
+        }
         // anim = GetComponent<Animator>();
         // play spawn animation
     }
@@ -70,5 +80,10 @@ public abstract class BaseCharacterStats : MonoBehaviour
             Debug.Log(entityName + " attacks " + _targetStats.entityName);
             Debug.Log(_targetStats.entityName + " has " + _targetStats.hitPoints + " hit points left");
         }
+    }
+
+    Attack AddAttack()
+    {
+        return gameObject.AddComponent<Attack>();
     }
 }
